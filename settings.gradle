@@ -1,0 +1,5 @@
+rootProject.name='Github browser'
+include ':app'
+include ':domain'
+include ':conn'
+include ':ui'
