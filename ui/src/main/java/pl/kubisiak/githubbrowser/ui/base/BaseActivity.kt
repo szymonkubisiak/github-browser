@@ -3,13 +3,15 @@ package pl.kubisiak.githubbrowser.ui.base
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
+import pl.kubisiak.githubbrowser.ui.Navigator
+import pl.kubisiak.githubbrowser.ui.NavigatorImpl
 import pl.kubisiak.githubbrowser.ui.R
 
 abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //navigatorInstance = NavigatorImpl(this)
+        Navigator.instance = NavigatorImpl(this)
     }
 
     fun replaceFragment(newFragment: BaseFragment, addToBackstack: Boolean = true) {

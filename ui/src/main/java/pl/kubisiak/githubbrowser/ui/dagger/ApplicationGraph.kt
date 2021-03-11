@@ -1,10 +1,10 @@
 package pl.kubisiak.githubbrowser.ui.dagger
 
-import pl.kubisiak.githubbrowser.domain.repos.SearchRepo
+import pl.kubisiak.githubbrowser.domain.usecase.SearchUseCase
 
 interface ApplicationGraph {
 
-	fun provideSearchRepo(): SearchRepo
+	fun provideSearchUC(): SearchUseCase
 
 	companion object {
 		lateinit var instance: ApplicationGraph

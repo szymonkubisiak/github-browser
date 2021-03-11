@@ -10,8 +10,6 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.internal.disposables.DisposableContainer
 
 open class BaseViewModel : ViewModel() {
-//	val navigator: Navigator
-//		get() = navigatorInstance
 
 	private val _disposer = CompositeDisposable()
 	val disposer: DisposableContainer

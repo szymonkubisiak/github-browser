@@ -42,13 +42,13 @@ class RetrofitProvider @Inject constructor()  {
 			val requestBuilder = original.newBuilder()
 				.header("User-Agent", "Szymon-Kubisiak-Github-Browser")
 				.header("Accept", "application/vnd.github.v3+json")
-				.addHeader("Authorization", "Basic: " + basicAuth)
+				//.addHeader("Authorization", "Basic: " + basicAuth)
 
 			val request = requestBuilder.build()
 			chain.proceed(request)
 		}
 			//.addInterceptor(ErrorInterceptor(Gson()))
-			//.addInterceptor(MockInterceptor())
+			//.addInterceptor(StubInterceptor())
 			.writeTimeout(30, TimeUnit.SECONDS)
 			.readTimeout(30, TimeUnit.SECONDS)
 

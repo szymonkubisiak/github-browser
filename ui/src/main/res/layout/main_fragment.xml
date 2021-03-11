@@ -2,6 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
+	xmlns:bind="http://schemas.android.com/tools"
 	>
 
 	<data>
@@ -30,55 +31,50 @@
 			tools:text="Lorem Ipsum"
 			/>
 
-		<Button
-			android:id="@+id/touchMe"
+		<TextView
+			android:id="@+id/label"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_margin="3dp"
-
-			android:text="test"
-			android:visibility="gone"
+			android:text="search query:"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@id/message"
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintVertical_bias="0.384"
 			/>
 
 		<EditText
-			android:id="@+id/editBlogHandle"
+			android:id="@+id/editSearchQuery"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			android:layout_marginStart="12dp"
 			android:layout_marginTop="12dp"
-
-			app:layout_constraintEnd_toStartOf="@id/blogHandleSuffix"
+			android:text="@={vm.query}"
+			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@id/touchMe"
-			/>
-
-		<TextView
-			android:id="@+id/blogHandleSuffix"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text=".tumblr.com"
-			app:layout_constraintBottom_toBottomOf="@id/editBlogHandle"
-			app:layout_constraintEnd_toStartOf="@+id/posts"
-			app:layout_constraintStart_toEndOf="@id/editBlogHandle"
-			app:layout_constraintTop_toTopOf="@+id/editBlogHandle"
+			app:layout_constraintTop_toBottomOf="@id/label"
 			/>
 
 		<Button
-			android:id="@+id/posts"
+			android:id="@+id/searchBtn"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_margin="3dp"
-			android:layout_marginBottom="13dp"
 			android:onClick="@{() -> vm.doSearch()}"
-			android:text="posts"
-			app:layout_constraintBottom_toBottomOf="@+id/editBlogHandle"
+			android:text="search"
 			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintTop_toTopOf="@+id/editBlogHandle"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/editSearchQuery"
 			/>
 
+		<androidx.recyclerview.widget.RecyclerView
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			bind:items="@{vm.items}"
+			bind:vertical="@{true}"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/searchBtn"
+			/>
 
 
 	</androidx.constraintlayout.widget.ConstraintLayout>
